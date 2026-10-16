@@ -1,0 +1,593 @@
+{
+  "cases": [
+    {
+      "expected": [],
+      "kind": "good",
+      "name": "good_place_order",
+      "tool": {
+        "description": "Places a product order in the Helios Cloud store. Use after confirming the cart with the customer.",
+        "name": "helios_place_order",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "api_token": {
+              "description": "Store API token used to authenticate the order.",
+              "examples": [
+                "tok_sample_9f2k"
+              ],
+              "sensitive": true,
+              "type": "string"
+            },
+            "customer_id": {
+              "description": "Customer identifier, e.g. C-1042. Find it via helios_find_customer first.",
+              "examples": [
+                "C-1042",
+                "C-8817"
+              ],
+              "type": "string"
+            },
+            "delivery_speed": {
+              "description": "Delivery speed: standard (5 days), express (2 days), or overnight.",
+              "enum": [
+                "standard",
+                "express",
+                "overnight"
+              ],
+              "examples": [
+                "standard",
+                "express",
+                "overnight"
+              ],
+              "type": "string"
+            },
+            "notes": {
+              "description": "Free-text note for the warehouse team. May be left empty.",
+              "examples": [
+                "Leave at the side door."
+              ],
+              "type": "string"
+            },
+            "product_sku": {
+              "description": "SKU of the product to order, e.g. HL-BULB-9W.",
+              "examples": [
+                "HL-BULB-9W",
+                "HL-THERM-2"
+              ],
+              "type": "string"
+            },
+            "quantity": {
+              "description": "How many units to order. Must be at least 1.",
+              "examples": [
+                2,
+                5
+              ],
+              "minimum": 1,
+              "type": "integer"
+            },
+            "shipping_address": {
+              "additionalProperties": false,
+              "description": "Where to ship the order.",
+              "examples": [
+                {
+                  "street": "410 Meridian Ave",
+                  "zip": "75201"
+                }
+              ],
+              "properties": {
+                "street": {
+                  "description": "Street address line.",
+                  "examples": [
+                    "410 Meridian Ave"
+                  ],
+                  "type": "string"
+                },
+                "zip": {
+                  "description": "Five-digit US ZIP code.",
+                  "examples": [
+                    "75201",
+                    "10001"
+                  ],
+                  "pattern": "^[0-9]{5}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "street",
+                "zip"
+              ],
+              "type": "object"
+            },
+            "tags": {
+              "description": "Tags used for order analytics and routing.",
+              "examples": [
+                [
+                  "gift",
+                  "priority"
+                ]
+              ],
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "customer_id",
+            "product_sku",
+            "quantity"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    {
+      "expected": [
+        {
+          "path": "$.tools[0].description",
+          "rule_id": "DESC-001",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.q.description",
+          "rule_id": "DESC-002",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.mode.description",
+          "rule_id": "DESC-003",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.zip_code.description",
+          "rule_id": "DESC-003",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.userName.description",
+          "rule_id": "DESC-004",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.dup_b.description",
+          "rule_id": "DESC-005",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.address_ref",
+          "rule_id": "EX-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.blob",
+          "rule_id": "EX-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.meta",
+          "rule_id": "EX-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.zip_code",
+          "rule_id": "EX-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.count",
+          "rule_id": "EX-002",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.mode",
+          "rule_id": "EX-003",
+          "severity": "info"
+        },
+        {
+          "path": "$.tools[0].name",
+          "rule_id": "NAM-001",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.userName",
+          "rule_id": "NAM-003",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.q",
+          "rule_id": "NAM-004",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.required",
+          "rule_id": "REQ-001",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.nullable_id",
+          "rule_id": "REQ-002",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.optional_thing",
+          "rule_id": "REQ-002",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.count",
+          "rule_id": "REQ-003",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.nullable_id",
+          "rule_id": "REQ-004",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.customer_password",
+          "rule_id": "RISK-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.delete_all",
+          "rule_id": "RISK-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.blob",
+          "rule_id": "SML-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.ids",
+          "rule_id": "SML-002",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.meta",
+          "rule_id": "SML-003",
+          "severity": "info"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.choice",
+          "rule_id": "SML-004",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.contact.format",
+          "rule_id": "SML-005",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.zip_code",
+          "rule_id": "SML-006",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.address_ref",
+          "rule_id": "SML-007",
+          "severity": "info"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.labels",
+          "rule_id": "SML-007",
+          "severity": "info"
+        }
+      ],
+      "kind": "bad",
+      "name": "bad_tool_full",
+      "tool": {
+        "description": "",
+        "name": "Tool1",
+        "parameters": {
+          "properties": {
+            "address_ref": {
+              "$ref": "#/defs/address",
+              "description": "Address reference."
+            },
+            "blob": {
+              "description": "A blob of stuff.",
+              "type": "object"
+            },
+            "choice": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ],
+              "description": "Pick a string or an integer.",
+              "examples": [
+                "seven"
+              ]
+            },
+            "contact": {
+              "description": "Contact email address.",
+              "examples": [
+                "ops@example.com"
+              ],
+              "format": "email-address",
+              "type": "string"
+            },
+            "count": {
+              "default": 1,
+              "description": "Number of items.",
+              "examples": [
+                "three"
+              ],
+              "type": "integer"
+            },
+            "customer_password": {
+              "description": "Customer password.",
+              "examples": [
+                "hunter2"
+              ],
+              "type": "string"
+            },
+            "delete_all": {
+              "description": "Delete everything.",
+              "examples": [
+                true
+              ],
+              "type": "boolean"
+            },
+            "dup_a": {
+              "description": "Identifier string.",
+              "examples": [
+                "a1"
+              ],
+              "type": "string"
+            },
+            "dup_b": {
+              "description": "Identifier string.",
+              "examples": [
+                "b2"
+              ],
+              "type": "string"
+            },
+            "ids": {
+              "description": "List of identifiers.",
+              "examples": [
+                [
+                  1,
+                  2
+                ]
+              ],
+              "type": "array"
+            },
+            "labels": {
+              "description": "Custom labels.",
+              "examples": [
+                {
+                  "x-team": "ops"
+                }
+              ],
+              "patternProperties": {
+                "^x-": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "meta": {
+              "description": "Metadata bag.",
+              "properties": {
+                "source": {
+                  "description": "Where it came from.",
+                  "examples": [
+                    "web"
+                  ],
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "mode": {
+              "description": "The mode.",
+              "enum": [
+                "a",
+                "b",
+                "c"
+              ],
+              "examples": [
+                "a"
+              ],
+              "type": "string"
+            },
+            "nullable_id": {
+              "description": "Identifier that may be null.",
+              "examples": [
+                "id-1"
+              ],
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "optional_thing": {
+              "description": "This parameter is optional and can be null.",
+              "examples": [
+                "x"
+              ],
+              "type": "string"
+            },
+            "q": {
+              "examples": [
+                "bulbs"
+              ],
+              "type": "string"
+            },
+            "userName": {
+              "description": "TODO",
+              "examples": [
+                "akash"
+              ],
+              "type": "string"
+            },
+            "zip_code": {
+              "description": "ZIP code.",
+              "pattern": "^[0-9]{5}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "count",
+            "optional_thing",
+            "nullable_id",
+            "nope"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    {
+      "expected": [],
+      "kind": "fp_trap",
+      "name": "fp_optional_noun",
+      "tool": {
+        "description": "Reports the current status of a Helios device.",
+        "name": "helios_get_device_status",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "device_id": {
+              "description": "Toggles the 'optional' extras pack for the device.",
+              "examples": [
+                "D-100"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "device_id"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    {
+      "expected": [],
+      "kind": "fp_trap",
+      "name": "fp_pattern_with_example",
+      "tool": {
+        "description": "Sets the ZIP code used for the Helios store locator.",
+        "name": "helios_set_zip",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "zip_code": {
+              "description": "Five-digit US ZIP code.",
+              "examples": [
+                "75201"
+              ],
+              "pattern": "^[0-9]{5}$",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      }
+    },
+    {
+      "expected": [],
+      "kind": "fp_trap",
+      "name": "fp_enum_covered",
+      "tool": {
+        "description": "Sets the fan speed on a Helios device.",
+        "name": "helios_set_speed",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "speed": {
+              "description": "Fan speed: low for quiet nights, high for quick cooling.",
+              "enum": [
+                "low",
+                "high"
+              ],
+              "examples": [
+                "low",
+                "high"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      }
+    },
+    {
+      "expected": [],
+      "kind": "fp_trap",
+      "name": "fp_sensitive_marked",
+      "tool": {
+        "description": "Rotates the API token used by the Helios Cloud integration.",
+        "name": "helios_rotate_token",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "api_token": {
+              "description": "The current API token to rotate out.",
+              "examples": [
+                "tok_sample_1"
+              ],
+              "sensitive": true,
+              "type": "string"
+            }
+          },
+          "required": [
+            "api_token"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    {
+      "expected": [
+        {
+          "path": "$.tools[0].parameters.properties.customer_id",
+          "rule_id": "REQ-002",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.customer_id",
+          "rule_id": "REQ-004",
+          "severity": "warn"
+        }
+      ],
+      "kind": "fp_trap",
+      "name": "fp_nullable_oneof_no_discriminator_rule",
+      "tool": {
+        "description": "Finds a Helios customer by identifier.",
+        "name": "helios_find_customer",
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "customer_id": {
+              "description": "Customer identifier; may be null for guest checkout.",
+              "examples": [
+                "C-1042"
+              ],
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "customer_id"
+          ],
+          "type": "object"
+        }
+      }
+    }
+  ]
+}
