@@ -1,0 +1,236 @@
+{
+  "cases": [
+    {
+      "actual_count": 0,
+      "expected_count": 0,
+      "findings": [],
+      "kind": "good",
+      "mismatch": null,
+      "name": "good_place_order",
+      "passed": true
+    },
+    {
+      "actual_count": 30,
+      "expected_count": 30,
+      "findings": [
+        {
+          "path": "$.tools[0].description",
+          "rule_id": "DESC-001",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.q.description",
+          "rule_id": "DESC-002",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.mode.description",
+          "rule_id": "DESC-003",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.zip_code.description",
+          "rule_id": "DESC-003",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.userName.description",
+          "rule_id": "DESC-004",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.dup_b.description",
+          "rule_id": "DESC-005",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.address_ref",
+          "rule_id": "EX-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.blob",
+          "rule_id": "EX-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.meta",
+          "rule_id": "EX-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.zip_code",
+          "rule_id": "EX-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.count",
+          "rule_id": "EX-002",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.mode",
+          "rule_id": "EX-003",
+          "severity": "info"
+        },
+        {
+          "path": "$.tools[0].name",
+          "rule_id": "NAM-001",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.userName",
+          "rule_id": "NAM-003",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.q",
+          "rule_id": "NAM-004",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.required",
+          "rule_id": "REQ-001",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.nullable_id",
+          "rule_id": "REQ-002",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.optional_thing",
+          "rule_id": "REQ-002",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.count",
+          "rule_id": "REQ-003",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.nullable_id",
+          "rule_id": "REQ-004",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.customer_password",
+          "rule_id": "RISK-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.delete_all",
+          "rule_id": "RISK-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.blob",
+          "rule_id": "SML-001",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.ids",
+          "rule_id": "SML-002",
+          "severity": "error"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.meta",
+          "rule_id": "SML-003",
+          "severity": "info"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.choice",
+          "rule_id": "SML-004",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.contact.format",
+          "rule_id": "SML-005",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.zip_code",
+          "rule_id": "SML-006",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.address_ref",
+          "rule_id": "SML-007",
+          "severity": "info"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.labels",
+          "rule_id": "SML-007",
+          "severity": "info"
+        }
+      ],
+      "kind": "bad",
+      "mismatch": null,
+      "name": "bad_tool_full",
+      "passed": true
+    },
+    {
+      "actual_count": 0,
+      "expected_count": 0,
+      "findings": [],
+      "kind": "fp_trap",
+      "mismatch": null,
+      "name": "fp_optional_noun",
+      "passed": true
+    },
+    {
+      "actual_count": 0,
+      "expected_count": 0,
+      "findings": [],
+      "kind": "fp_trap",
+      "mismatch": null,
+      "name": "fp_pattern_with_example",
+      "passed": true
+    },
+    {
+      "actual_count": 0,
+      "expected_count": 0,
+      "findings": [],
+      "kind": "fp_trap",
+      "mismatch": null,
+      "name": "fp_enum_covered",
+      "passed": true
+    },
+    {
+      "actual_count": 0,
+      "expected_count": 0,
+      "findings": [],
+      "kind": "fp_trap",
+      "mismatch": null,
+      "name": "fp_sensitive_marked",
+      "passed": true
+    },
+    {
+      "actual_count": 2,
+      "expected_count": 2,
+      "findings": [
+        {
+          "path": "$.tools[0].parameters.properties.customer_id",
+          "rule_id": "REQ-002",
+          "severity": "warn"
+        },
+        {
+          "path": "$.tools[0].parameters.properties.customer_id",
+          "rule_id": "REQ-004",
+          "severity": "warn"
+        }
+      ],
+      "kind": "fp_trap",
+      "mismatch": null,
+      "name": "fp_nullable_oneof_no_discriminator_rule",
+      "passed": true
+    }
+  ],
+  "notes": "Pinned golden corpus: good schemas must lint clean, bad schemas must produce the exact pinned findings, FP traps must not fire. Deterministic: findings sorted by (rule_id, path, message); no timestamps in this report.",
+  "summary": {
+    "failed": 0,
+    "passed": 7,
+    "total": 7
+  },
+  "tool": "tool-schema-linter"
+}
